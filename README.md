@@ -20,4 +20,5 @@ yarn dev
 ## Notes
 
 1.  Do Note is a fullstack application built on **NextJs(frontend)**, **Express(backend)** and **MongoDB** as **database.**
-2.  This is the frontend application repository.
+2.  [This](https://github.com/divy-koushik-mishra/do-note-frontend) is the frontend application repository.
+3.  You can visit backend repository [here.](https://github.com/divy-koushik-mishra/do-note-backend)
