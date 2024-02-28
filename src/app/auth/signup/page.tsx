@@ -19,7 +19,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const handleRegister = (e) => {
+  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     if (!fullname || !username || !email || !password) {
       alert("Please fill all the fields");
       e.preventDefault();
@@ -69,11 +69,15 @@ const Page = () => {
   };
   return (
     <section className="flex justify-center">
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
+      <Card color="transparent" shadow={false} placeholder={undefined}>
+        <Typography variant="h4" color="blue-gray" placeholder={undefined}>
           Sign Up
         </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
+        <Typography
+          color="gray"
+          className="mt-1 font-normal"
+          placeholder={undefined}
+        >
           Nice to meet you! Enter your details to register.
         </Typography>
         <form
@@ -81,7 +85,12 @@ const Page = () => {
           onSubmit={handleRegister}
         >
           <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Your Name
             </Typography>
             <Input
@@ -93,8 +102,14 @@ const Page = () => {
               }}
               value={fullname}
               onChange={(e) => setFullname(e.target.value)}
+              crossOrigin={undefined}
             />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Your Username
             </Typography>
             <Input
@@ -106,8 +121,14 @@ const Page = () => {
               }}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              crossOrigin={undefined}
             />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Your Email
             </Typography>
             <Input
@@ -119,8 +140,14 @@ const Page = () => {
               }}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              crossOrigin={undefined}
             />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Password
             </Typography>
             <Input
@@ -133,6 +160,7 @@ const Page = () => {
               }}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              crossOrigin={undefined}
             />
           </div>
           <Checkbox
@@ -141,6 +169,7 @@ const Page = () => {
                 variant="small"
                 color="gray"
                 className="flex items-center font-normal"
+                placeholder={undefined}
               >
                 I agree the
                 <a
@@ -154,16 +183,22 @@ const Page = () => {
             containerProps={{ className: "-ml-2.5" }}
             checked={checknox}
             onChange={(e) => setChecknox(e.target.checked)}
+            crossOrigin={undefined}
           />
           <Button
             type="submit"
             className="mt-6"
             fullWidth
-            onClick={handleRegister}
+            onClick={(e: React.FormEvent<HTMLFormElement>) => handleRegister(e)}
+            placeholder={undefined}
           >
             sign up
           </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
+          <Typography
+            color="gray"
+            className="mt-4 text-center font-normal"
+            placeholder={undefined}
+          >
             Already have an account?{" "}
             <Link href="/auth/login" className="font-medium text-gray-900">
               Sign In

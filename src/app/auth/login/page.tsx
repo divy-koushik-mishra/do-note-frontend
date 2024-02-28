@@ -17,7 +17,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.MouseEvent) => {
     if (!email || !password) {
       alert("Please fill all the fields");
       e.preventDefault();
@@ -50,16 +50,25 @@ const Page = () => {
   };
   return (
     <section className="flex justify-center h-screen items-center">
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
+      <Card color="transparent" shadow={false} placeholder={undefined}>
+        <Typography variant="h4" color="blue-gray" placeholder={undefined}>
           Login
         </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
+        <Typography
+          color="gray"
+          className="mt-1 font-normal"
+          placeholder={undefined}
+        >
           Nice to meet you again! Enter your credientials to login.
         </Typography>
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
           <div className="mb-1 flex flex-col gap-6">
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Your Email
             </Typography>
             <Input
@@ -73,7 +82,12 @@ const Page = () => {
               onChange={(e) => setEmail(e.target.value)}
               crossOrigin={"true"}
             />
-            <Typography variant="h6" color="blue-gray" className="-mb-3">
+            <Typography
+              variant="h6"
+              color="blue-gray"
+              className="-mb-3"
+              placeholder={undefined}
+            >
               Password
             </Typography>
             <Input
@@ -86,12 +100,22 @@ const Page = () => {
               }}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              crossOrigin={undefined}
             />
           </div>
-          <Button className="mt-6" fullWidth onClick={handleLogin}>
+          <Button
+            className="mt-6"
+            fullWidth
+            onClick={handleLogin}
+            placeholder={undefined}
+          >
             Login up
           </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
+          <Typography
+            color="gray"
+            className="mt-4 text-center font-normal"
+            placeholder={undefined}
+          >
             Do not have a account?{" "}
             <Link href="/auth/signup" className="font-medium text-gray-900">
               Sign In
