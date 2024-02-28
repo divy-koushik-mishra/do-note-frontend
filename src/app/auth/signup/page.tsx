@@ -19,7 +19,7 @@ const Page = () => {
 
   const router = useRouter();
 
-  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = (e: React.MouseEvent) => {
     if (!fullname || !username || !email || !password) {
       alert("Please fill all the fields");
       e.preventDefault();
@@ -80,10 +80,7 @@ const Page = () => {
         >
           Nice to meet you! Enter your details to register.
         </Typography>
-        <form
-          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
-          onSubmit={handleRegister}
-        >
+        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
           <div className="mb-1 flex flex-col gap-6">
             <Typography
               variant="h6"
@@ -186,10 +183,9 @@ const Page = () => {
             crossOrigin={undefined}
           />
           <Button
-            type="submit"
             className="mt-6"
             fullWidth
-            onClick={(e: React.FormEvent<HTMLFormElement>) => handleRegister(e)}
+            onClick={handleRegister}
             placeholder={undefined}
           >
             sign up

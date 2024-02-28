@@ -21,7 +21,7 @@ const Page = () => {
   return (
     <div>
       Dashboard
-      <Button onClick={logoutHandler}>Logout</Button>
+      {/* <Button onClick={logoutHandler}>Logout</Button> */}
     </div>
   );
 };
