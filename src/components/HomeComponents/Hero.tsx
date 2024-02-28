@@ -2,14 +2,14 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="rounded-3xl w-full  bg-[url('/heroImage.jpg')] bg-no-repeat bg-cover p-14 my-1">
+    <section className="rounded-3xl w-full  bg-[url('/heroImage.jpg')] bg-no-repeat bg-cover p-7 md:p-14 my-1">
       <h2 className="text-center text-4xl font-bold">Do Note</h2>
-      <div className="heroLeft w-1/2 text-5xl leading-[3.3rem] font-semibold">
+      <div className="heroLeft w-full md:w-1/2 text-2xl md:text-5xl md:leading-[3.3rem] font-semibold">
         <h2 className="">Next-Gen</h2>
         <h2 className="">Note-taking App</h2>
         <h2 className=""> Infused With</h2>
         <h2 className=" ">A.I.</h2>
-        <p className="w-[90%] text-base font-normal">
+        <p className="w-full md:w-[90%] text-base font-medium">
           This next-generation note-taking app combines cutting-edge AI
           technology with a sleek, user-friendly interface. It offers
           intelligent features such as automatic organization, to-do list, smart

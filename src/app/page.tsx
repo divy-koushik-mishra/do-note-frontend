@@ -3,7 +3,7 @@ import Hero from "@/components/HomeComponents/Hero";
 
 export default function Home() {
   return (
-    <main>
+    <main className="rounded-3xl">
       <Hero />
       <About />
     </main>
