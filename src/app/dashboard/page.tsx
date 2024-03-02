@@ -6,18 +6,15 @@ import { useRouter } from "next/navigation";
 
 const Page = () => {
   const router = useRouter();
-  const logoutHandler = () => {
-    fetch("http://localhost:8000/api/v1/users/logout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // refreshToken,
-      }),
-    });
-    router.push("/auth/login");
-  };
+  //  verift access token
+  // const accessToken = localStorage.getItem("accessToken");
+  if (typeof window !== "undefined") {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      router.push("/auth/login");
+    }
+  }
+
   return (
     <div>
       Dashboard

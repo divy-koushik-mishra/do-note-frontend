@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Page = () => {
   const [fullname, setFullname] = useState("");
@@ -23,43 +24,34 @@ const Page = () => {
     if (!fullname || !username || !email || !password) {
       alert("Please fill all the fields");
       e.preventDefault();
-
       return;
     }
 
     if (!checknox) {
       alert("Please agree to the terms and conditions");
-      //  prevent from reloading the page
       e.preventDefault();
       return;
     }
-    e.preventDefault();
-    console.log(fullname, username, email, password);
 
+    e.preventDefault();
     //  api post request
-    fetch("http://localhost:8000/api/v1/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullName: fullname, //  fix this
+    axios
+      .post("http://localhost:8000/api/v1/users/register", {
+        fullname,
         username,
         email,
         password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          alert("Registration successful");
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.status === 201) {
+          alert("User created successfully");
           router.push("/auth/login");
-        } else {
-          alert("Registration failed");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
     // clear form
     setFullname("");
     setUsername("");

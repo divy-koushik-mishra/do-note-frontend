@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -27,25 +28,25 @@ const Page = () => {
     e.preventDefault();
     console.log(email, password);
     //  api post request
-    fetch("http://localhost:8000/api/v1/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    axios
+      .post("http://localhost:8000/api/v1/users/login", {
         email,
         password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.success) {
-          alert("Login successful");
+      })
+      .then((res) => {
+        console.log(res.data.data.accessToken);
+
+        if (res.status === 200) {
+          localStorage.setItem("accessToken", res.data.data.accessToken);
+          localStorage.setItem("refreshToken", res.data.data.refreshToken);
+          alert("User logged in successfully");
           router.push("/dashboard");
-        } else {
-          alert("Login failed");
         }
+      })
+      .catch((err) => {
+        console.log(err);
+
+        alert("Invalid credentials");
       });
   };
   return (

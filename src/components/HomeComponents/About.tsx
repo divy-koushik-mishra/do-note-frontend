@@ -34,8 +34,8 @@ const About = () => {
           Integrates seamlessly with your to-do list. Stay organized and
           productive. <br />
           <strong>Adaptive AI:</strong> <br />
-          AI adapts to your preferences over time. Helps you make the
-          most of your day.
+          AI adapts to your preferences over time. Helps you make the most of
+          your day.
         </p>
       </div>
     </section>
