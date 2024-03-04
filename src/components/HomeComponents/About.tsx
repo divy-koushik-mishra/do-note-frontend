@@ -3,12 +3,12 @@ import Card from "./utils/Card";
 
 const About = () => {
   return (
-    <section className="flex flex-col md:flex-row justify-center w-full ">
+    <section className="flex flex-col md:flex-row justify-evenly w-full ">
       <div className="aboutLeft  md:w-1/2 text-3xl ">
         <h3 className="md:w-4/6 font-medium my-4 p-2">
           Empowering you to Organize, Achieve and Thrive Everyday.
         </h3>
-        <div className="cards w-full  flex ">
+        <div className="cards w-full  flex">
           <Card
             title="Note Taking"
             content="Capture and organize your thoughts effortlessly with our intuitive note-taking feature."

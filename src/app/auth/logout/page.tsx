@@ -28,6 +28,8 @@ const Page = () => {
         localStorage.removeItem("accessToken");
         // remove refreshToken
         localStorage.removeItem("refreshToken");
+        // remove username
+        localStorage.removeItem("username");
         router.push("/auth/login");
       })
       .catch((err) => {
@@ -39,7 +41,11 @@ const Page = () => {
       router.push("/auth/login");
     }
   }, [router]);
-  return <div>You are being Logged out and redirected to Login Page</div>;
+  return (
+    <div className="h-screen justify-center items-center font-medium text-2xl">
+      You have been Logged out and being redirected to Login Page
+    </div>
+  );
 };
 
 export default Page;

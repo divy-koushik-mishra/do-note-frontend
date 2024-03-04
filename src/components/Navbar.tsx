@@ -3,6 +3,7 @@ import { RiArrowRightUpLine, RiMenuLine } from "@remixicon/react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { SidebarWithBurgerMenu } from "./DashboardComponents/ui/utils/Sidebar";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -40,11 +41,10 @@ const Navbar = () => {
   return (
     <nav className="w-full rounded-full bg-gray-300 px-5 py-3 flex justify-between items-center">
       <div className="Navlogo">
+        {/* <RiMenuLine className="inline-block cursor-pointer hover:bg-[#aeafb3] rounded-full p-[2px] " />{" "} */}
+        <SidebarWithBurgerMenu />
         <Link href={"/"}>
-          <h2 className="text-lg font-medium">
-            <RiMenuLine className="inline-block cursor-pointer hover:bg-[#aeafb3] rounded-full p-[2px] " />{" "}
-            Do Note
-          </h2>
+          <h2 className="text-lg font-medium inline-block">Do Note</h2>
         </Link>
       </div>
       <div className="menuItems">
